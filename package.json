@@ -1,0 +1,22 @@
+{
+    "name": "fyle",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Vishal Soni",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "dotenv": "^8.0.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "pg": "^7.11.0"
+    },
+    "engines": {
+        "node": "10.15.2",
+        "npm": "6.4.1"
+    }
+}
