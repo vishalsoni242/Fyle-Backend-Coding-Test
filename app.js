@@ -49,8 +49,7 @@ const verifyToken = (req, res, next) => {
 };
 
 app.get('/', async (req, res) => {
-    const { rows } = await pool.query('SELECT * FROM banks');
-    res.send(rows);
+    res.send('Hello!');
 });
 
 app.get('/bank/:ifsc', verifyToken, async (req, res) => {
