@@ -13,7 +13,6 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 //const router = express.Router();
 
-// Express body parser
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -25,7 +24,7 @@ const verifyToken = (req, res, next) => {
         res.sendStatus(403);
     }
     if (token) {
-        jwt.verify(token, 'secretkey', (err, token) => {
+        jwt.verify(token, 'keepitsecret', (err, token) => {
             if (err) {
                 return res.json({
                     success: false,
@@ -37,11 +36,11 @@ const verifyToken = (req, res, next) => {
             }
         });
     } else {
-        res.sendStatus(403);
-        // return res.json({
-        //     success: false,
-        //     message: 'Authorization token is not provided'
-        // });
+        // res.sendStatus(403);
+        return res.json({
+            success: false,
+            message: 'Token is not provided'
+        });
     }
 };
 
@@ -58,15 +57,7 @@ app.get('/bank/:ifsc', verifyToken, async (req, res) => {
     res.send(rows[0]);
     // res.json(rows[0]);
 });
-app.get('/bank1/:ifsc', async (req, res) => {
-    const ifsc = req.params.ifsc;
-    const { rows } = await pool.query(
-        'SELECT banks.name, branches.ifsc, branches.bank_id, branches.branch, branches.address, branches.city, branches.district, branches.state FROM branches JOIN banks ON (branches.bank_id = banks.id) WHERE branches.ifsc = $1',
-        [ifsc]
-    );
-    res.send(rows[0]);
-    // res.json(rows[0]);
-});
+
 app.get('/branches/:bank/:city', verifyToken, async (req, res) => {
     const { bank, city } = req.params;
     let { limit, offset } = req.query;
@@ -89,11 +80,16 @@ app.post('/login', async (req, res) => {
     const user = {
         username: 'admin'
     };
-    jwt.sign({ user }, 'secretkey', { expiresIn: '432000s' }, (err, token) => {
-        res.json({
-            token
-        });
-    });
+    jwt.sign(
+        { user },
+        'keepitsecret',
+        { expiresIn: '432000s' },
+        (err, token) => {
+            res.json({
+                token
+            });
+        }
+    );
 });
 
 app.listen(PORT, console.log(`Server is running on ${PORT}`));
