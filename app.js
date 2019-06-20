@@ -5,14 +5,8 @@ const jwt = require('jsonwebtoken');
 const { Pool, Client } = require('pg');
 
 const pool = new Pool({
-    user: 'itqlzdtgrfjyau',
-    host:
-        process.env.DATABASE_URL ||
-        'ec2-174-129-242-183.compute-1.amazonaws.com',
-    database: 'd6p33ck7eeltih',
-    password:
-        '7d8078433fcfc87a1920056d6f30295ab606715939ad1aeb908489088fdbefbc',
-    port: 5432
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
 });
 
 const app = express();
