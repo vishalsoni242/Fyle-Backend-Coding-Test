@@ -61,6 +61,15 @@ app.get('/bank/:ifsc', verifyToken, async (req, res) => {
     res.send(rows[0]);
     // res.json(rows[0]);
 });
+app.get('/bank1/:ifsc', async (req, res) => {
+    const ifsc = req.params.ifsc;
+    const { rows } = await pool.query(
+        'SELECT banks.name, branches.ifsc, branches.bank_id, branches.branch, branches.address, branches.city, branches.district, branches.state FROM branches JOIN banks ON (branches.bank_id = banks.id) WHERE branches.ifsc = $1',
+        [ifsc]
+    );
+    res.send(rows[0]);
+    // res.json(rows[0]);
+});
 app.get('/branches/:bank/:city', verifyToken, async (req, res) => {
     const { bank, city } = req.params;
     let { limit, offset } = req.query;
