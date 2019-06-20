@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('public'));
 
 const verifyToken = (req, res, next) => {
     let token = req.headers['x-access-token'] || req.headers['authorization'];
@@ -45,7 +46,7 @@ const verifyToken = (req, res, next) => {
 };
 
 app.get('/', async (req, res) => {
-    res.send('Hello!');
+    res.sendFile('index.html');
 });
 
 app.get('/bank/:ifsc', verifyToken, async (req, res) => {
