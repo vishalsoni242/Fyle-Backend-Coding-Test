@@ -49,8 +49,8 @@ app.get('/', async (req, res) => {
     res.sendFile('index.html');
 });
 
-app.get('/bank/:ifsc', verifyToken, async (req, res) => {
-    const ifsc = req.params.ifsc;
+app.get('/bank', verifyToken, async (req, res) => {
+    let { ifsc } = req.query;
     const { rows } = await pool.query(
         'SELECT banks.name, branches.ifsc, branches.bank_id, branches.branch, branches.address, branches.city, branches.district, branches.state FROM branches JOIN banks ON (branches.bank_id = banks.id) WHERE branches.ifsc = $1',
         [ifsc]
@@ -59,9 +59,8 @@ app.get('/bank/:ifsc', verifyToken, async (req, res) => {
     // res.json(rows[0]);
 });
 
-app.get('/branches/:bank/:city', verifyToken, async (req, res) => {
-    const { bank, city } = req.params;
-    let { limit, offset } = req.query;
+app.get('/branches', verifyToken, async (req, res) => {
+    let { limit, offset, bank, city } = req.query;
     limit = parseInt(limit);
     offset = parseInt(offset);
     if (isNaN(limit) || !limit || limit <= 0) {
