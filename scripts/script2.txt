@@ -1,11 +1,11 @@
 curl -X GET \
-  https://pacific-caverns-91275.herokuapp.com/branches/AXIS%20BANK/DELHI \
+  'https://pacific-caverns-91275.herokuapp.com/branches?limit=10&offset=26&bank=AXIS%20BANK&city=DELHI' \
   -H 'Accept: */*' \
-  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4ifSwiaWF0IjoxNTYxMDE0NjY5LCJleHAiOjE1NjE0NDY2Njl9.aW6K2QmbST6HAJnCzYP5x0U1gzb9ShxfDbwb91iGpW8' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4ifSwiaWF0IjoxNTYxMjEyMDc4LCJleHAiOjE1NjE2NDQwNzh9.or6Vrku5ce-erSyMvURV7ZaWua9M69ketqSzK0_-S_Q' \
   -H 'Cache-Control: no-cache' \
   -H 'Connection: keep-alive' \
   -H 'Host: pacific-caverns-91275.herokuapp.com' \
-  -H 'Postman-Token: 3571d29f-8188-4c2b-bf62-bdddad50d219,1d1ffe82-e369-4835-9777-1b8e0b8ef08b' \
+  -H 'Postman-Token: b016392d-7708-42d0-8f45-fd369bba8156,848a24d1-dd52-4f25-9ce9-08465da14d38' \
   -H 'User-Agent: PostmanRuntime/7.15.0' \
   -H 'accept-encoding: gzip, deflate' \
   -H 'cache-control: no-cache'

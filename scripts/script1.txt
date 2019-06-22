@@ -1,11 +1,11 @@
 curl -X GET \
-  https://pacific-caverns-91275.herokuapp.com/bank/UTIB0001358 \
+  'https://pacific-caverns-91275.herokuapp.com/bank?ifsc=UTIB0001358' \
   -H 'Accept: */*' \
-  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4ifSwiaWF0IjoxNTYxMDE0NjY5LCJleHAiOjE1NjE0NDY2Njl9.aW6K2QmbST6HAJnCzYP5x0U1gzb9ShxfDbwb91iGpW8' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4ifSwiaWF0IjoxNTYxMjEyMDc4LCJleHAiOjE1NjE2NDQwNzh9.or6Vrku5ce-erSyMvURV7ZaWua9M69ketqSzK0_-S_Q' \
   -H 'Cache-Control: no-cache' \
   -H 'Connection: keep-alive' \
   -H 'Host: pacific-caverns-91275.herokuapp.com' \
-  -H 'Postman-Token: da07060f-ebda-42ae-ab47-5da3962308da,7fdc8f89-cd29-4b8c-b50b-2606f6cf0eb7' \
+  -H 'Postman-Token: 2f0c5182-88ed-4263-b6ae-692852efc515,e6a23065-6cc2-4542-8c38-3569f09a24a8' \
   -H 'User-Agent: PostmanRuntime/7.15.0' \
   -H 'accept-encoding: gzip, deflate' \
   -H 'cache-control: no-cache'
